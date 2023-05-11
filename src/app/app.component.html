@@ -1,6 +1,28 @@
-{{title}}
+<div *ngIf="num1 >20">
+  this is {{title}}
+</div>
 
+<div [hidden]="visible">
+  what a {{title}}
+</div>
+<br>
 <div style="color: red;">
   <app-student></app-student>
-  <app-student-stand-alone appMouseHover color="green" (hover1) = "mouseHoverEvent()"></app-student-stand-alone>
+  <app-student-stand-alone color="green" (hover1) = "mouseHoverEvent()"></app-student-stand-alone>
 </div>
+
+<hr>
+<input type="radio" name="radio1" (click)="OnChange(true)">True
+<input type="radio" name="radio1" (click)="OnChange(false)">False
+
+<div *ngIf="visible; then thenBlock ; else elseBlock"></div>
+
+<br>
+
+<ng-template #thenBlock>
+  This true radio button click -- then block
+</ng-template>
+
+<ng-template #elseBlock>
+  This false radio button click -- else block
+</ng-template>

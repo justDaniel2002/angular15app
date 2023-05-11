@@ -7,6 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Angular15App';
+  num1 = 21;
+  visible = false;
 
   constructor(){
 
@@ -18,5 +20,9 @@ export class AppComponent {
 
   mouseHoverEvent(){
     console.log('mouseHover')
+  }
+
+  OnChange(args: any) {
+    this.visible = args;
   }
 }

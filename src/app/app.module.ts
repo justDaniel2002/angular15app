@@ -25,7 +25,7 @@ import { MouseHoverDirective } from './directive/mouse-hover.directive';
     BrowserAnimationsModule,
     // ColorFontDirective,
     // ItalicsFontDirective
-    MouseHoverDirective
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

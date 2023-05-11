@@ -7,4 +7,16 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Angular15App';
+
+  constructor(){
+
+  }
+
+  ngOnInit() {
+
+  }
+
+  mouseHoverEvent(){
+    console.log('mouseHover')
+  }
 }

@@ -6,10 +6,20 @@
   what a {{title}}
 </div>
 <br>
+
+<a [routerLink]="['/student']">student</a> ||
+<a [routerLink]="['/teacher']">teacher</a>
+<br>
+<button (click)="routing('student')">studentbtn</button>
+
+<router-outlet>
+
 <div style="color: red;">
   <app-student></app-student>
   <app-student-stand-alone color="green" (hover1) = "mouseHoverEvent()"></app-student-stand-alone>
 </div>
+
+</router-outlet>
 
 <hr>
 <input type="radio" name="radio1" (click)="OnChange(true)">True
@@ -19,6 +29,7 @@
 
 <br>
 
+
 <ng-template #thenBlock>
   This true radio button click -- then block
 </ng-template>
@@ -26,3 +37,145 @@
 <ng-template #elseBlock>
   This false radio button click -- else block
 </ng-template>
+
+<br>
+
+<select (change) = "SelectColor($event)">
+  <option value="">-- Select Color</option>
+  <option value="R">Red</option>
+  <option value="G">Green</option>
+  <option value="B">Blue</option>
+  <option value="D">Default Color</option>
+</select>
+
+<div [ngSwitch] = "color">
+  <div *ngSwitchCase = "'R'">
+    <h3 style="color: red;">this is red</h3>
+  </div>
+  <div *ngSwitchCase = "'G'">
+    <h3 style="color: green;">this is gren</h3>
+  </div>
+  <div *ngSwitchCase = "'B'">
+    <h3 style="color: blue;">this is blue</h3>
+  </div>
+  <div *ngSwitchDefault>
+    <h3>this is default color</h3>
+  </div>
+</div>
+
+<br>
+<table border="1">
+  <tr>
+    <th>Index</th>
+    <th>Name</th>
+    <th>Age</th>
+    <th>Gender</th>
+    <th>First</th>
+    <th>Last</th>
+    <th>Even</th>
+    <th>Odd</th>
+  </tr>
+
+  <tr *ngFor="let item of StudentDetails ; let i = index ; let f = first ; let l = last ; let e = even ; let o = odd">
+    <td>{{i+1}}</td>
+    <td>{{item.Name}}</td>
+    <td>{{item.Age}}</td>
+    <td>{{item.Gender}}</td>
+    <td>{{f}}</td>
+    <td>{{l}}</td>
+    <td>{{e}}</td>
+    <td>{{o}}</td>
+  </tr>
+</table>
+
+<br>
+
+<ul *ngFor="let item of StudentDetails">
+  <div [ngStyle]="{'color' :item.Age>21?'red':'green'}">
+      {{item.Name}} Age is --> {{item.Age}}
+  </div>
+</ul>
+
+<h3>We are working with ngStyle as a func</h3>
+
+<ul *ngFor="let item of StudentDetails">
+  <div [ngStyle]="{'color' :GetAge(item.Age)}">
+      {{item.Name}} Age is --> {{item.Age}}
+  </div>
+</ul>
+
+<h3 [ngClass]="['color1','Font1']">Using NgClass as a string</h3>
+
+<h3 [ngClass]="{'color1': true,'Font1' : true}">Using NgClass as a object</h3>
+
+<div [ngClass]="GetCssClass('main')">
+  using css as a method calling
+</div>
+<div [ngClass]="GetCssClass('')">
+  using css as a method calling
+</div>
+
+<div [innerHtml] = 'title'></div>
+<a [attr.href]='link'>title</a>
+
+<table border="1">
+
+  <tr>
+    <th [attr.colspan]='colspan'>
+      table
+    </th>
+  </tr>
+
+  <tr>
+    <td>Name</td>
+    <td>Age</td>
+  </tr>
+</table>
+
+<br>
+Blinding 2 ways
+
+Enter Name: <input [value]='model.name' (input) = 'model.name = $any($event.target).value'>
+<input [(ngModel)] = 'model.name'/>
+<br>
+your name is {{model.name}}
+
+<br>
+Pipe 
+<table border="1">
+<tr>
+  <th>Name</th>
+  <th>Age</th>
+  <th>DOB</th>
+</tr>
+<tr *ngFor="let item of studentInfo">
+  <th>{{item.name | uppercase}}</th>
+  <th>{{item.age}}</th>
+  <th>{{item.DOB | date: 'dd-MM-yyyy'}}</th>
+</tr>
+</table>
+
+<br>
+
+Pipe date : {{DOB}} <br>
+
+short date : {{DOB | date: 'short' : 'd/m/yy'}} <br>
+
+Salary : {{salary}} <br>
+
+Current salary : {{salary | currency : 'USD' : true}} <br>
+
+nothing : {{title}} <br>
+uppercase : {{title | uppercase}} <br>
+lowercase : {{title | lowercase}} <br>
+titlecase : {{title | titlecase}} <br>
+slice case start index : {{title | slice :2}} <br>
+slice case start and end index : {{title | slice :2 :5}}
+
+<br>
+Custom Pipe
+
+<div *ngFor="let item of NumberArray">
+multiple of {{item.num1}} and {{item.num2}} is {{item.num1 | multiplication : item.num2}}
+</div>
+

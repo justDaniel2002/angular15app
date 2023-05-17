@@ -11,18 +11,22 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ColorFontDirective } from './directive/color-font.directive';
 import { ItalicsFontDirective } from './directive/italics-font.directive';
 import { MouseHoverDirective } from './directive/mouse-hover.directive';
+import {FormsModule} from '@angular/forms';
+import { MultiplicationPipe } from './multiplication.pipe'
 
 @NgModule({
   declarations: [
     AppComponent,
     TeacherComponent,
-    StudentComponent
+    StudentComponent,
+    MultiplicationPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     StudentStandAloneComponent,
     BrowserAnimationsModule,
+    FormsModule
     // ColorFontDirective,
     // ItalicsFontDirective
     

@@ -12,14 +12,19 @@ import { ColorFontDirective } from './directive/color-font.directive';
 import { ItalicsFontDirective } from './directive/italics-font.directive';
 import { MouseHoverDirective } from './directive/mouse-hover.directive';
 import {FormsModule} from '@angular/forms';
-import { MultiplicationPipe } from './multiplication.pipe'
+import { MultiplicationPipe } from './multiplication.pipe';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { ContactUsComponent } from './contact-us/contact-us.component'
+import { Angular15Service } from './angular15.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     TeacherComponent,
     StudentComponent,
-    MultiplicationPipe
+    MultiplicationPipe,
+    PageNotFoundComponent,
+    ContactUsComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +36,7 @@ import { MultiplicationPipe } from './multiplication.pipe'
     // ItalicsFontDirective
     
   ],
-  providers: [],
+  providers: [Angular15Service],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

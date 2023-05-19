@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { Angular15Service } from './angular15.service';
 
 @Component({
   selector: 'app-root',
@@ -28,9 +29,9 @@ export class AppComponent {
 
   NumberArray:any[] = [];
 
-  private router : Router = new Router();
+  displayMessage : any = ''
 
-  constructor() {
+  constructor(private router : Router, private service : Angular15Service) {
     this.StudentDetails = [
       {
         Name: 'Student1',
@@ -71,7 +72,7 @@ export class AppComponent {
   }
 
   ngOnInit() {
-
+    this.displayMessage = this.service.DisplayMeg()
   }
 
   mouseHoverEvent(){

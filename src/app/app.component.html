@@ -7,19 +7,25 @@
 </div>
 <br>
 
-<a [routerLink]="['/student']">student</a> ||
-<a [routerLink]="['/teacher']">teacher</a>
+<a [routerLinkActive] = "'active'" [routerLink]="['/student']" [routerLinkActiveOptions]="{exact:true}">student</a> ||
+<a [routerLinkActive] = "'active'" [routerLink]="'teacher'">teacher</a> ||
+<a [routerLinkActive] = "'active'" [routerLink]="['student']">student</a> ||
+<a [routerLinkActive] = "'active'" routerLink="teacher">teacher</a> ||
 <br>
 <button (click)="routing('student')">studentbtn</button>
+--service
+<p>{{displayMessage}}</p>
+--service
 
+--route
 <router-outlet>
 
+</router-outlet>
+--route
 <div style="color: red;">
   <app-student></app-student>
   <app-student-stand-alone color="green" (hover1) = "mouseHoverEvent()"></app-student-stand-alone>
 </div>
-
-</router-outlet>
 
 <hr>
 <input type="radio" name="radio1" (click)="OnChange(true)">True

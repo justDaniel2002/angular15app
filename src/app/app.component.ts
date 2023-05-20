@@ -1,11 +1,14 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { Angular15Service } from './angular15.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  // standalone:true,
+  // imports:[CommonModule, RouterModule]
 })
 export class AppComponent {
   title = 'aNguLar15ApP';
@@ -30,6 +33,8 @@ export class AppComponent {
   NumberArray:any[] = [];
 
   displayMessage : any = ''
+
+  categories: any = [];
 
   constructor(private router : Router, private service : Angular15Service) {
     this.StudentDetails = [
@@ -73,6 +78,13 @@ export class AppComponent {
 
   ngOnInit() {
     this.displayMessage = this.service.DisplayMeg()
+    this.service.CallApi().subscribe(data => {
+      this.categories = data
+      console.log("Categories", this.categories)
+      console.log("Data", data)
+    })
+    
+    
   }
 
   mouseHoverEvent(){

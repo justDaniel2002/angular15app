@@ -6,7 +6,18 @@
   what a {{title}}
 </div>
 <br>
+categories:
+<div *ngFor="let item of categories">
+<p>{{item.name}}</p>
+</div>
 
+<br>
+
+<br>
+
+<br>
+
+<br>
 <a [routerLinkActive] = "'active'" [routerLink]="['/student']" [routerLinkActiveOptions]="{exact:true}">student</a> ||
 <a [routerLinkActive] = "'active'" [routerLink]="'teacher'">teacher</a> ||
 <a [routerLinkActive] = "'active'" [routerLink]="['student']">student</a> ||

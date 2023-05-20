@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
-import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http'; import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { StudentComponent } from './student/student.component';
 import { StudentListModule } from './student-list/student-list.module';
@@ -31,7 +30,8 @@ import { Angular15Service } from './angular15.service';
     AppRoutingModule,
     StudentStandAloneComponent,
     BrowserAnimationsModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
     // ColorFontDirective,
     // ItalicsFontDirective
     
